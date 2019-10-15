@@ -627,7 +627,29 @@
              }
           }
        },
-       "/users":{ 
+       "/users":{
+            "get":{ 
+               "tags":[ 
+                  "category"
+               ],
+               "summary":"All customers",
+               "description":"Lists of all customers",
+               "operationId":"findAllUsers",
+               "produces":[ 
+                  "application/json"
+               ],
+               "responses":{ 
+                  "200":{ 
+                     "description":"successful operation",
+                     "schema":{ 
+                        "type":"array",
+                        "items":{ 
+                           "$ref":"#/definitions/User"
+                        }
+                     }
+                  }
+               }
+            },
           "post":{ 
              "tags":[ 
                 "user"
@@ -832,7 +854,85 @@
                 }
              }
           }
-       }
+       },
+       "/users/{id}/orders":{ 
+         "get":{ 
+            "tags":[ 
+               "user"
+            ],
+            "summary":"Get the orders of a user",
+            "description":"",
+            "operationId":"getOrdersByUserId",
+            "produces":[ 
+               "application/json"
+            ],
+            "parameters":[ 
+               { 
+                  "name":"id",
+                  "in":"path",
+                  "description":"User id for which all orders are fetched.",
+                  "required":true,
+                  "type":"integer",
+                  "format":"int64"
+               }
+            ],
+            "responses":{ 
+               "200":{ 
+                  "description":"successful operation",
+                  "schema":{ 
+                     "type":"array",
+                     "items": {
+                        "$ref":"#/definitions/Order"
+                     }
+                  }
+               },
+               "400":{ 
+                  "description":"Invalid argument supplied"
+               },
+               "404":{ 
+                  "description":"User not found"
+               }
+            }
+         },
+         "post":{ 
+            "tags":[ 
+               "user"
+            ],
+            "summary":"Create an order for a customer",
+            "description":"",
+            "operationId":"createOrderFor",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[ 
+               { 
+                  "name":"id",
+                  "in":"path",
+                  "description":"User id for which an order is created",
+                  "required":true,
+                  "type":"integer",
+                  "format":"int64"
+               },
+               { 
+                  "in":"body",
+                  "name":"body",
+                  "description":"New order object",
+                  "required":true,
+                  "schema":{ 
+                     "$ref":"#/definitions/Order"
+                  }
+               }
+            ],
+            "responses":{ 
+               "400":{ 
+                  "description":"Invalid argument supplied"
+               },
+               "404":{ 
+                  "description":"User not found"
+               }
+            }
+         }
+      }
     },
     "definitions":{ 
        "Order":{ 
@@ -862,13 +962,7 @@
              "complete":{ 
                 "type":"boolean",
                 "default":false
-             },
-             "items":{ 
-               "type":"array",
-               "items":{
-                 "$ref":"#/definitions/Product"
-               }                
-            }
+             }
           },
           "xml":{ 
              "name":"Order"
@@ -898,13 +992,7 @@
              },
              "phone":{ 
                 "type":"string"
-             },
-             "orders":{ 
-               "type":"array",
-               "items":{
-                 "$ref":"#/definitions/Order"
-               }                
-            }
+             }
           },
           "xml":{ 
              "name":"User"
@@ -919,12 +1007,6 @@
              },
              "name":{ 
                 "type":"string"
-             },
-             "products":{ 
-               "type":"array",
-               "items":{
-                 "$ref":"#/definitions/Product"
-               }                
              }
           },
           "xml":{ 
@@ -948,12 +1030,6 @@
              "quantity":{ 
                 "type":"integer",
                 "format":"int32"
-             },
-             "categories":{ 
-               "type":"array",
-               "items":{
-                 "$ref":"#/definitions/Category"
-               }                
              }
           },
           "xml":{ 
@@ -970,12 +1046,6 @@
              "name":{ 
                "type":"string",
                "example":"Adidas"
-             },
-             "products":{ 
-                "type":"array",
-                "items":{
-                  "$ref":"#/definitions/Product"
-                }                
              }
           },
           "xml":{ 
