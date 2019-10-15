@@ -490,6 +490,74 @@
         }
       }
     },
+    "/orders/{id}/cancel": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Cancel an order",
+        "description": "",
+        "operationId": "cancelOrder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Order id that needs to be cancelled.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
+    },
+    "/orders/{id}/purchase": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Purchase an order",
+        "description": "",
+        "operationId": "purchaseOrder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Order id that is going to be purchased.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
+    },
     "/orders/{oid}/items/{iid}": {
       "get": {
         "tags": [
