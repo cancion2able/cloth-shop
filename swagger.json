@@ -879,10 +879,6 @@
              },
              "items":{ 
                "type":"array",
-               "xml":{
-                  "name":"product",
-                  "wrapped":true
-               },
                "items":{
                  "$ref":"#/definitions/Product"
                }                
@@ -919,10 +915,6 @@
              },
              "orders":{ 
                "type":"array",
-               "xml":{
-                  "name":"order",
-                  "wrapped":true
-               },
                "items":{
                  "$ref":"#/definitions/Order"
                }                
@@ -945,10 +937,6 @@
           },
           "products":{ 
             "type":"array",
-            "xml":{
-               "name":"product",
-               "wrapped":true
-            },
             "items":{
               "$ref":"#/definitions/Product"
             }                
@@ -977,10 +965,6 @@
              },
              "categories":{ 
                "type":"array",
-               "xml":{
-                  "name":"category",
-                  "wrapped":true
-               },
                "items":{
                  "$ref":"#/definitions/Category"
                }                
@@ -1003,10 +987,6 @@
              },
              "products":{ 
                 "type":"array",
-                "xml":{
-                   "name":"product",
-                   "wrapped":true
-                },
                 "items":{
                   "$ref":"#/definitions/Product"
                 }                
