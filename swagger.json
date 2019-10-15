@@ -98,7 +98,7 @@
        "/users":{
             "get":{ 
                "tags":[ 
-                  "category"
+                  "user"
                ],
                "summary":"All customers",
                "description":"Lists of all customers",
@@ -402,6 +402,96 @@
          }
       }
     },
+    "/orders":{
+      "get":{ 
+         "tags":[ 
+            "order"
+         ],
+         "summary":"All orders",
+         "description":"Lists all orders registered in the system",
+         "operationId":"findAllOrders",
+         "produces":[ 
+            "application/json"
+         ],
+         "responses":{ 
+            "200":{ 
+               "description":"successful operation",
+               "schema":{ 
+                  "type":"array",
+                  "items":{ 
+                     "$ref":"#/definitions/Order"
+                  }
+               }
+            }
+         }
+      }
+    },
+    "/orders/{id}":{ 
+      "get":{ 
+         "tags":[ 
+            "order"
+         ],
+         "summary":"Get an order by id",
+         "description":"",
+         "operationId":"getOrderById",
+         "produces":[ 
+            "application/json"
+         ],
+         "parameters":[ 
+            { 
+               "name":"id",
+               "in":"path",
+               "description":"Order id that needs to be fetched.",
+               "required":true,
+               "type":"integer",
+               "format":"int64"
+            }
+         ],
+         "responses":{ 
+            "200":{ 
+               "description":"successful operation",
+               "schema":{ 
+                  "$ref":"#/definitions/Order"
+               }
+            },
+            "400":{ 
+               "description":"Invalid argument supplied"
+            },
+            "404":{ 
+               "description":"Order not found"
+            }
+         }
+      },
+      "delete":{ 
+         "tags":[ 
+            "order"
+         ],
+         "summary":"Delete an order",
+         "description":"",
+         "operationId":"deleteOrder",
+         "produces":[ 
+            "application/json"
+         ],
+         "parameters":[ 
+            { 
+               "name":"id",
+               "in":"path",
+               "description":"The id of the order that needs to be deleted",
+               "required":true,
+               "type":"integer",
+               "format":"int64"
+            }
+         ],
+         "responses":{ 
+            "400":{ 
+               "description":"Invalid argument supplied"
+            },
+            "404":{ 
+               "description":"Order not found"
+            }
+         }
+      }
+   },
     "definitions":{ 
        "Order":{ 
           "type":"object",
