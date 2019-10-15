@@ -85,8 +85,11 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid category supplied"
           }
         }
       }
@@ -118,6 +121,12 @@
             "schema": {
               "$ref": "#/definitions/Category"
             }
+          },
+          "404": {
+            "description": "Category not found"
+          },
+          "400": {
+            "description": "Invalid argument supplied"
           }
         }
       }
@@ -207,8 +216,11 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid user supplied"
           }
         }
       }
@@ -280,7 +292,7 @@
         "parameters": [
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "successful operation"
           }
         }
