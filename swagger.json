@@ -656,7 +656,7 @@
              }
           }
        },
-       "/user/login":{ 
+       "/users/login":{ 
           "get":{ 
              "tags":[ 
                 "user"
@@ -708,7 +708,7 @@
              }
           }
        },
-       "/user/logout":{ 
+       "/users/logout":{ 
           "get":{ 
              "tags":[ 
                 "user"
@@ -730,25 +730,25 @@
              }
           }
        },
-       "/user/{username}":{ 
+       "/users/{id}":{ 
           "get":{ 
              "tags":[ 
                 "user"
              ],
-             "summary":"Get user by user name",
+             "summary":"Get user by id",
              "description":"",
-             "operationId":"getUserByName",
+             "operationId":"getUserById",
              "produces":[ 
-                "application/xml",
                 "application/json"
              ],
              "parameters":[ 
                 { 
-                   "name":"username",
+                   "name":"id",
                    "in":"path",
-                   "description":"The name that needs to be fetched. Use user1 for testing. ",
+                   "description":"User id that needs to be fetched.",
                    "required":true,
-                   "type":"string"
+                   "type":"integer",
+                   "format":"int64"
                 }
              ],
              "responses":{ 
@@ -759,7 +759,7 @@
                    }
                 },
                 "400":{ 
-                   "description":"Invalid username supplied"
+                   "description":"Invalid argument supplied"
                 },
                 "404":{ 
                    "description":"User not found"
@@ -778,11 +778,12 @@
              ],
              "parameters":[ 
                 { 
-                   "name":"username",
+                   "name":"id",
                    "in":"path",
-                   "description":"name that need to be updated",
+                   "description":"User id that needs to be updated",
                    "required":true,
-                   "type":"string"
+                   "type":"integer",
+                   "format":"int64"
                 },
                 { 
                    "in":"body",
@@ -824,7 +825,7 @@
              ],
              "responses":{ 
                 "400":{ 
-                   "description":"Invalid username supplied"
+                   "description":"Invalid argument supplied"
                 },
                 "404":{ 
                    "description":"User not found"
