@@ -933,13 +933,13 @@
              },
              "name":{ 
                 "type":"string"
+             },
+             "products":{ 
+               "type":"array",
+               "items":{
+                 "$ref":"#/definitions/Product"
+               }                
              }
-          },
-          "products":{ 
-            "type":"array",
-            "items":{
-              "$ref":"#/definitions/Product"
-            }                
           },
           "xml":{ 
              "name":"Category"
