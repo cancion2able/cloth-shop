@@ -39,7 +39,35 @@
     "schemes":[
        "http"
     ],
-    "paths":{ 
+    "paths":{
+       "/categories/":{
+         "get":{ 
+            "tags":[ 
+               "category"
+            ],
+            "summary":"Product categories",
+            "description":"Lists all the product categories",
+            "operationId":"findAllCategories",
+            "produces":[ 
+               "application/xml",
+               "application/json"
+            ],
+            "responses":{ 
+               "200":{ 
+                  "description":"successful operation",
+                  "schema":{ 
+                     "type":"array",
+                     "items":{ 
+                        "$ref":"#/definitions/Category"
+                     }
+                  }
+               },
+               "400":{ 
+                  "description":"Invalid status value"
+               }
+            }
+         }
+       }, 
        "/pet":{ 
           "post":{ 
              "tags":[ 
