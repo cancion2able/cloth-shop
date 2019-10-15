@@ -520,6 +520,12 @@
              "complete":{ 
                 "type":"boolean",
                 "default":false
+             },
+             "items":{
+                "type":"array",
+                "items":{
+                   "$ref":"#/definitions/Product"
+                }
              }
           },
           "xml":{ 
@@ -550,6 +556,12 @@
              },
              "phone":{ 
                 "type":"string"
+             },
+             "orders":{
+                "type":"array",
+                "items":{
+                   "$ref":"#/definitions/Order"
+                }
              }
           },
           "xml":{ 
@@ -565,6 +577,12 @@
              },
              "name":{ 
                 "type":"string"
+             },
+             "products":{
+                "type":"array",
+                "items":{
+                   "$ref":"#/definitions/Product"
+                }
              }
           },
           "xml":{ 
@@ -588,6 +606,12 @@
              "quantity":{ 
                 "type":"integer",
                 "format":"int32"
+             },
+             "categories":{
+                "type":"array",
+                "items":{
+                   "$ref":"#/definitions/Category"
+                }
              }
           },
           "xml":{ 
@@ -604,6 +628,12 @@
              "name":{ 
                "type":"string",
                "example":"Adidas"
+             },
+             "products":{
+                "type":"array",
+                "items":{
+                   "$ref":"#/definitions/Product"
+                }
              }
           },
           "xml":{ 
