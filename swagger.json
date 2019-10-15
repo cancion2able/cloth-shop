@@ -489,6 +489,169 @@
           }
         }
       }
+    },
+    "/orders/{oid}/items/{iid}": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Get an item of an order",
+        "description": "",
+        "operationId": "getItemFromOrder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "oid",
+            "in": "path",
+            "description": "Order id where items are looked up",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "iid",
+            "in": "path",
+            "description": "Item id which should be fetched from an order",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Delete an item of an order",
+        "description": "",
+        "operationId": "deleteItemFromOrder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "oid",
+            "in": "path",
+            "description": "Order id where items are looked up",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "iid",
+            "in": "path",
+            "description": "Item id which should be deleted from an order",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
+      }
+    },
+    "/orders/{id}/items": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Get the items of an order",
+        "description": "",
+        "operationId": "getItemsByOrderId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Order id for which all items are fetched.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Add an item to an order",
+        "description": "",
+        "operationId": "addItemToOrder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Order id where new item is added",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New item object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
     }
   },
   "definitions": {
