@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is a sample API for Spring Boot application for EPAM's Internal Lab program.",
+    "description": "This is a sample API for Spring Boot application for EPAM's Internal Lab program. \nTasks:\n\n1. TDD should be one and only approach ([Epam internal course](https://www.linkedin.com/learning/programming-foundations-test-driven-development-2/tdd-and-agile?u=2113185))\n2. Every endpoint should be accompanied with @SpringBootTest\n3. These endpoints should be leveraged by other Spring MVC module in microservices architecture",
     "version": "1.0.0",
     "title": "Cloth Shop",
     "contact": {
