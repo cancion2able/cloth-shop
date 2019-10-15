@@ -627,7 +627,7 @@
              }
           }
        },
-       "/user":{ 
+       "/users":{ 
           "post":{ 
              "tags":[ 
                 "user"
@@ -635,8 +635,7 @@
              "summary":"Create user",
              "description":"This can only be done by the logged in user.",
              "operationId":"createUser",
-             "produces":[ 
-                "application/xml",
+             "produces":[
                 "application/json"
              ],
              "parameters":[ 
@@ -657,72 +656,6 @@
              }
           }
        },
-       "/user/createWithArray":{ 
-          "post":{ 
-             "tags":[ 
-                "user"
-             ],
-             "summary":"Creates list of users with given input array",
-             "description":"",
-             "operationId":"createUsersWithArrayInput",
-             "produces":[ 
-                "application/xml",
-                "application/json"
-             ],
-             "parameters":[ 
-                { 
-                   "in":"body",
-                   "name":"body",
-                   "description":"List of user object",
-                   "required":true,
-                   "schema":{ 
-                      "type":"array",
-                      "items":{ 
-                         "$ref":"#/definitions/User"
-                      }
-                   }
-                }
-             ],
-             "responses":{ 
-                "default":{ 
-                   "description":"successful operation"
-                }
-             }
-          }
-       },
-       "/user/createWithList":{ 
-          "post":{ 
-             "tags":[ 
-                "user"
-             ],
-             "summary":"Creates list of users with given input array",
-             "description":"",
-             "operationId":"createUsersWithListInput",
-             "produces":[ 
-                "application/xml",
-                "application/json"
-             ],
-             "parameters":[ 
-                { 
-                   "in":"body",
-                   "name":"body",
-                   "description":"List of user object",
-                   "required":true,
-                   "schema":{ 
-                      "type":"array",
-                      "items":{ 
-                         "$ref":"#/definitions/User"
-                      }
-                   }
-                }
-             ],
-             "responses":{ 
-                "default":{ 
-                   "description":"successful operation"
-                }
-             }
-          }
-       },
        "/user/login":{ 
           "get":{ 
              "tags":[ 
@@ -732,7 +665,6 @@
              "description":"",
              "operationId":"loginUser",
              "produces":[ 
-                "application/xml",
                 "application/json"
              ],
              "parameters":[ 
@@ -841,8 +773,7 @@
              "summary":"Updated user",
              "description":"This can only be done by the logged in user.",
              "operationId":"updateUser",
-             "produces":[ 
-                "application/xml",
+             "produces":[
                 "application/json"
              ],
              "parameters":[ 
@@ -880,16 +811,15 @@
              "description":"This can only be done by the logged in user.",
              "operationId":"deleteUser",
              "produces":[ 
-                "application/xml",
                 "application/json"
              ],
              "parameters":[ 
                 { 
-                   "name":"username",
+                   "name":"id",
                    "in":"path",
-                   "description":"The name that needs to be deleted",
+                   "description":"The id of the user that needs to be deleted",
                    "required":true,
-                   "type":"string"
+                   "type":"integer"
                 }
              ],
              "responses":{ 
