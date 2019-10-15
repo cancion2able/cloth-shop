@@ -1041,9 +1041,7 @@
             "name": "body",
             "description": "Updated photo",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
+            "schema": { }
           }
         ],
         "responses": {
