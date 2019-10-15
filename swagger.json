@@ -3,7 +3,7 @@
     "info":{ 
        "description":"This is a sample API for Spring Boot application for EPAM's Internal Lab program.",
        "version":"1.0.0",
-       "title":"Swagger Petstore",
+       "title":"Cloth Shop",
        "contact":{ 
           "email":"stanislav_ovsyankin@epam.com"
        },
@@ -17,11 +17,7 @@
     "tags":[ 
        { 
           "name":"pet",
-          "description":"Everything about your Pets",
-          "externalDocs":{ 
-             "description":"Find out more",
-             "url":"http://swagger.io"
-          }
+          "description":"Everything about your Pets"
        },
        { 
           "name":"store",
@@ -29,11 +25,7 @@
        },
        { 
           "name":"user",
-          "description":"Operations about user",
-          "externalDocs":{ 
-             "description":"Find out more about our store",
-             "url":"http://swagger.io"
-          }
+          "description":"Operations about user"
        }
     ],
     "schemes":[
@@ -848,22 +840,6 @@
           }
        }
     },
-    "securityDefinitions":{ 
-       "petstore_auth":{ 
-          "type":"oauth2",
-          "authorizationUrl":"https://petstore.swagger.io/oauth/authorize",
-          "flow":"implicit",
-          "scopes":{ 
-             "write:pets":"modify pets in your account",
-             "read:pets":"read your pets"
-          }
-       },
-       "api_key":{ 
-          "type":"apiKey",
-          "name":"api_key",
-          "in":"header"
-       }
-    },
     "definitions":{ 
        "Order":{ 
           "type":"object",
@@ -872,15 +848,15 @@
                 "type":"integer",
                 "format":"int64"
              },
-             "petId":{ 
-                "type":"integer",
-                "format":"int64"
-             },
              "quantity":{ 
                 "type":"integer",
                 "format":"int32"
              },
              "shipDate":{ 
+                "type":"string",
+                "format":"date-time"
+             },
+             "createdAt":{
                 "type":"string",
                 "format":"date-time"
              },
@@ -945,6 +921,9 @@
                 "format":"int64"
              },
              "name":{ 
+                "type":"string"
+             },
+             "category_url":{
                 "type":"string"
              }
           },
@@ -1034,9 +1013,5 @@
              }
           }
        }
-    },
-    "externalDocs":{ 
-       "description":"Find out more about Swagger",
-       "url":"http://swagger.io"
     }
  }
