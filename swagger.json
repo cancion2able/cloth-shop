@@ -981,6 +981,81 @@
         }
       }
     },
+    "/products/{id}/photo": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Get a photo of a product",
+        "description": "",
+        "operationId": "getProductPhoto",
+        "produces": [
+          "image/jpeg"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The product id for which a photo should be retrieved",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid argument supplied"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Add or update the photo of a product",
+        "description": "",
+        "operationId": "updateProductPhoto",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product id for which a new photo is added",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated photo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      }
+    },
     "/vendors": {
       "get": {
         "tags": [
